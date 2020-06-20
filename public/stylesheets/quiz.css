@@ -1,0 +1,51 @@
+body{
+	margin: auto
+	font-weight:bold;
+}
+.rectangle{
+	width:80%;
+	margin: 0 auto;
+	border:1px solid white;
+	transition: background 0.6s;
+	background: grey;
+	color:#fff;
+	text-align: center;
+	padding:15px;
+}
+
+#question{
+	background: blue;
+	color:#fff;
+	text-align: center;
+	padding: 20px;
+	margin: 0 auto;
+	width:80%;
+	font-weight:bold;
+}
+
+#message{
+	text-align: center;
+	padding: 20px;
+	margin: 0 auto;
+	width:80%;
+	font-weight:bold;
+	font-size: 24px;
+}
+
+h1{
+	margin:0 auto;
+	font-size: 30px;
+	width:80%;
+}
+
+#another{
+	text-align: center;
+	font-size: 20px;
+	width:80%;
+	padding: 15px;
+	margin: 0 auto;
+	border:1px solid white;
+	color:white;
+	background:blue;
+	font-weight:bold;
+}
