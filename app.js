@@ -13,7 +13,7 @@ require('dotenv').config();
 app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
-mongoose.connect("mongodb://localhost:27017/Entertainment",{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://varun51:gotilla@123@cluster0-ovdbs.mongodb.net/Entertainment",{useNewUrlParser:true});
 app.use(express.static(__dirname+"/public"))
 app.use(flash())
 
@@ -189,6 +189,6 @@ function isLoggedIn(req,res,next){
 // 	res.status(err.status || 00);
 // 	res.send("Error")
 // })
-app.listen(3004,()=>{
+app.listen(process.env.PORT|||3004,()=>{
 	console.log("Entertainment app started");
 });
