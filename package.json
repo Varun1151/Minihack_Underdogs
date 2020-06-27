@@ -4,11 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-	"start":"node yelpcamp.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "8.10.0"
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "cloudinary": "^1.21.0",
