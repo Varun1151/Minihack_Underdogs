@@ -1,3 +1,7 @@
+<<<<<<< HEAD
 /node_modules
 npm-debug.log
 /*.env
+=======
+process.env
+>>>>>>> f9081a03709cb691f6ffcec4fe14d511b3516304

@@ -38,10 +38,10 @@ var upload = multer({ storage: storage, fileFilter: imageFilter})
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
   cloud_name: 'dzkqk6y2p', 
-  api_key: process.env.CLOUDINARY_API_KEY||818758744624256, 
-  api_secret: process.env.CLOUDINARY_API_SECRET||"ionm18OMZfQFvMamGrDsKIWZbJ4"
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
-// CLOUDINARY_URL=cloudinary://818758744624256:ionm18OMZfQFvMamGrDsKIWZbJ4@dzkqk6y2p
+
 app.use(require("express-session")({
 	secret:"underdogs",
 	resave:false,
@@ -198,6 +198,7 @@ function isLoggedIn(req,res,next){
 	res.redirect("/login")
 }
 
+<<<<<<< HEAD
 // app.use((err,req,res,next)=>{
 // 	res.locals.message = err.message;
 // 	res.locals.error = req.app.get("env") === "development" ? err:();
@@ -205,5 +206,9 @@ function isLoggedIn(req,res,next){
 // 	res.send("Error")
 // })
 app.listen(process.env.PORT||3004,()=>{
+=======
+
+app.listen(3004,()=>{
+>>>>>>> f9081a03709cb691f6ffcec4fe14d511b3516304
 	console.log("Entertainment app started");
 });
