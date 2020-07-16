@@ -64,7 +64,14 @@
 		
 		<div class="col-lg-6 col-md-12">
 			<div class="img-thumbnail">
-				<img src="<%=ca.image%>">
+				<img src="<%=ca.image%>" class="img-responsive">
+				<div class="caption">
+					<% if(currentUser && ca.author.id.equals(currentUser._id)){ %>
+						<form id="deleteform" action="/deletememe/<%=ca._id%>?_method=DELETE" method="POST">
+							<button class='btn btn-danger'>Delete</button>
+						</form>
+					<% } %>
+				</div>
 			</div>
 		</div>
 	<% }});%>

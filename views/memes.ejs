@@ -78,7 +78,7 @@
 		<% memes.forEach(function(ca){%>
 		<div class="col-lg-6 col-md-12">
 			<div class="img-thumbnail">
-				<img src="<%=ca.image%>">
+				<img src="<%=ca.image%>" class="img-responsive">
 				<div class="caption">
 					<a class="btn btn-sm btn-info" href="/memes/<%=ca.author.id%>"><%= ca.author.username%></a>
 				</div>

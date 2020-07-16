@@ -6,6 +6,7 @@ var express = require("express"),
 	LocalStratergy=require("passport-local"),
 	passportLocalMongoose=require("passport-local-mongoose"),
     mongoose=require("mongoose"),
+    methodoverride=require("method-override")
 	User=require("./models/user"),
 	Meme=require("./models/meme");
 require('dotenv').config();
@@ -15,6 +16,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
 mongoose.connect("mongodb+srv://varun51:gotilla@123@cluster0-ovdbs.mongodb.net/Entertainment",{useNewUrlParser:true});
 app.use(flash())
+app.use(methodoverride("_method"));
 
 
 var multer = require('multer');
@@ -99,7 +101,6 @@ app.get("/memes/:id",(req,res)=>{
 })
 
 
-
 app.post("/memes",isLoggedIn,upload.single('image'), function(req, res) {
 	cloudinary.uploader.upload(req.file.path, function(result) {
   // add cloudinary url for the image to the campground object under image property
@@ -168,6 +169,21 @@ app.get("/logout",(req,res)=>{
 	req.logout();
 	req.flash("success","Logged out successfully")
 	res.redirect("/memes");
+});
+
+
+app.delete("/deletememe/:memeid",isLoggedIn,(req,res)=>{
+	Meme.findByIdAndRemove(req.params.memeid,(err)=>{
+		if(err){
+			req.flash("error",err.message);
+			// res.redirect("/memes/"+currentUser._id);
+		}
+		else{
+			req.flash("success","Meme deleted")
+			// res.redirect("/memes/"+currentUser._id);
+		};
+		res.redirect("/")
+	})
 });
 
 app.get("*",(req,res)=>{
