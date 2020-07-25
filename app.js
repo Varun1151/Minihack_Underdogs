@@ -198,7 +198,7 @@ function isLoggedIn(req,res,next){
 	res.redirect("/login")
 }
 
-<<<<<<< HEAD
+
 // app.use((err,req,res,next)=>{
 // 	res.locals.message = err.message;
 // 	res.locals.error = req.app.get("env") === "development" ? err:();
@@ -206,9 +206,5 @@ function isLoggedIn(req,res,next){
 // 	res.send("Error")
 // })
 app.listen(process.env.PORT||3004,()=>{
-=======
-
-app.listen(3004,()=>{
->>>>>>> f9081a03709cb691f6ffcec4fe14d511b3516304
 	console.log("Entertainment app started");
 });

@@ -78,6 +78,7 @@ function reset(){
 	optiond.textContent=questions[ind].optiond;
 	ans=questions[ind].correct;
 	msg=questions[ind].description;
+	message.textContent=" "
 }
 for(var i=0;i<4;i++){
 	    select[i].addEventListener("click",function(){
