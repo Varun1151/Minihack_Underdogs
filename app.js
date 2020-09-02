@@ -20,7 +20,6 @@ const port = process.env.PORT || 3004
 app.set("view engine", "ejs");
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
-//"mongodb+srv://varun51:gotilla@123@cluster0-ovdbs.mongodb.net/Entertainment"
 app.use(flash())
 app.use(methodoverride("_method"))
 
