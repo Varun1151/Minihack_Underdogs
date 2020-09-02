@@ -13,9 +13,7 @@ const express = require("express"),
     memeRouter = require("./routers/memes"),
     otherRouter = require("./routers/quiz")
 
-//require('dotenv').config();
-
-const port = process.env.PORT || 3004
+const port = process.env.PORT
 
 app.set("view engine", "ejs");
 app.use(bodyparser.urlencoded({ extended: true }));
