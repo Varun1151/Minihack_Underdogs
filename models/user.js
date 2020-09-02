@@ -1,11 +1,34 @@
-var mongoose = require("mongoose"),
-	passportLocalMongoose=require("passport-local-mongoose");
+const mongoose = require("../db/mongoose")
+const passportLocalMongoose = require("passport-local-mongoose")
+const Meme = require("./meme")
 
+var userSchema = new mongoose.Schema({
+    username: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true
+    },
+    password: {
+        type: String,
+        trim: true,
+        minlength: 7,
+        validate(value) {
+            if (value.toLowerCase().includes("password")) {
+                throw new Error('Password cannot contain "password"')
+            }
+        }
+    }
+}, {
+    timestamps: true
+})
 
-var userSchema = mongoose.Schema({
-	username:String,
-	password:String
-});
+userSchema.virtual("memes", {
+    ref: "Meme",
+    localField: "_id",
+    foreignField: "author" //name on other thing  here its task
+})
 
 userSchema.plugin(passportLocalMongoose);
-module.exports=mongoose.model("User",userSchema);
+const User = mongoose.model("User", userSchema)
+module.exports = User

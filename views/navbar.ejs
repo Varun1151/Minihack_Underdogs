@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Enterr</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria- controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    		<span class="navbar-toggler-icon"></span>
+  		</button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+            <ul class="navbar-nav mr-auto">
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/memes">Memes</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/findme">Find me</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/quiz">Quiz</a>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+                    <% if(!currentUser){ %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/signup"><span><i class="fas fa-user-plus"></i></span> Sign Up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login"><span><i class="fas fa-user"></i></span> Login</a>
+                        </li>
+                        <%}
+      		else{%>
+                            <li class="nav-item"><a class="nav-link" href="#">Signed in as <%=currentUser.username %></a></li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout"><span><i class="fas fa-sign-out-alt"></i></span> Logout</a>
+                            </li>
+                            <%}%>
+                                <li class="nav-item">
+                                    <a class="nav-link active dark-mode-toggle" id="dark-mode-toggle" href="#">Toggle mode</a>
+                                </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+</nav>
